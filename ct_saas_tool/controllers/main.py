@@ -31,7 +31,7 @@ class SaaSLogin(Home):
         uid = request.session.authenticate(dbname, login, password)
         request.params['login_success'] = True
 
-        return http.redirect_with_hash(redirect_url)
+        return request.redirect(redirect_url)
 
     @http.route('/saas/update/request', auth='public', type='http', sitemap=False)
     def update_notify(self, **kwargs):
